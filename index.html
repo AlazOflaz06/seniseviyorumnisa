@@ -14,7 +14,7 @@
       font-family: Arial, sans-serif;
       font-weight: bold;
       white-space: nowrap;
-      animation: zoomIn 2.5s linear forwards;
+      animation: zoomIn 2s linear forwards;
     }
     @keyframes zoomIn {
       0% { transform: scale(0); opacity: 0; }
@@ -39,19 +39,19 @@
       // Rastgele renk
       text.style.color = colors[Math.floor(Math.random() * colors.length)];
       
-      // Rastgele font boyutu
+      // Rastgele boyut
       text.style.fontSize = (20 + Math.random() * 30) + "px";
 
       document.body.appendChild(text);
-      setTimeout(() => text.remove(), 2500); 
+      setTimeout(() => text.remove(), 2000); 
     }
 
-    // Daha hızlı ve daha çok yazı için hız artırıldı
+    // Aşırı fazla çıkması için
     setInterval(() => {
-      for (let i = 0; i < 5; i++) {  // aynı anda 5 tane çıkar
+      for (let i = 0; i < 25; i++) { // aynı anda 25 yazı
         createLoveText();
       }
-    }, 200); // her 0.2 saniyede çalışır
+    }, 200); // her 0.2 saniyede tekrar
   </script>
 </body>
 </html>
