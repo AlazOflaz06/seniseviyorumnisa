@@ -14,12 +14,12 @@
       font-family: Arial, sans-serif;
       font-weight: bold;
       white-space: nowrap;
-      animation: zoomIn 4s linear forwards;
+      animation: zoomIn 2.5s linear forwards;
     }
     @keyframes zoomIn {
       0% { transform: scale(0); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: scale(5); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: scale(6); opacity: 0; }
     }
   </style>
 </head>
@@ -40,13 +40,18 @@
       text.style.color = colors[Math.floor(Math.random() * colors.length)];
       
       // Rastgele font boyutu
-      text.style.fontSize = (20 + Math.random() * 20) + "px";
+      text.style.fontSize = (20 + Math.random() * 30) + "px";
 
       document.body.appendChild(text);
-      setTimeout(() => text.remove(), 4000); 
+      setTimeout(() => text.remove(), 2500); 
     }
 
-    setInterval(createLoveText, 800);
+    // Daha hızlı ve daha çok yazı için hız artırıldı
+    setInterval(() => {
+      for (let i = 0; i < 5; i++) {  // aynı anda 5 tane çıkar
+        createLoveText();
+      }
+    }, 200); // her 0.2 saniyede çalışır
   </script>
 </body>
 </html>
