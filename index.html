@@ -11,20 +11,15 @@
     }
     .love-text {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
       font-family: Arial, sans-serif;
       font-weight: bold;
-      color: white;
-      opacity: 0;
       white-space: nowrap;
       animation: zoomIn 4s linear forwards;
     }
     @keyframes zoomIn {
-      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      0% { transform: scale(0); opacity: 0; }
       50% { opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+      100% { transform: scale(5); opacity: 0; }
     }
   </style>
 </head>
@@ -36,13 +31,22 @@
       const text = document.createElement("div");
       text.classList.add("love-text");
       text.innerText = "❤️ Seni Seviyorum Nisa'm ❤️";
+      
+      // Rastgele konum
+      text.style.top = Math.random() * window.innerHeight + "px";
+      text.style.left = Math.random() * window.innerWidth + "px";
+      
+      // Rastgele renk
       text.style.color = colors[Math.floor(Math.random() * colors.length)];
-      document.body.appendChild(text);
+      
+      // Rastgele font boyutu
+      text.style.fontSize = (20 + Math.random() * 20) + "px";
 
+      document.body.appendChild(text);
       setTimeout(() => text.remove(), 4000); 
     }
 
-    setInterval(createLoveText, 1000);
+    setInterval(createLoveText, 800);
   </script>
 </body>
 </html>
