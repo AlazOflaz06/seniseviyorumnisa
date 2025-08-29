@@ -46,9 +46,9 @@
       setTimeout(() => text.remove(), 2000); 
     }
 
-    // Aşırı fazla çıkması için
+    // Aynı anda sadece 10 yazı oluştur
     setInterval(() => {
-      for (let i = 0; i < 25; i++) { // aynı anda 25 yazı
+      for (let i = 0; i < 10; i++) {
         createLoveText();
       }
     }, 200); // her 0.2 saniyede tekrar
