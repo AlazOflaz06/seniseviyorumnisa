@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Seni Seviyorum Nisa'm</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+    .love-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      white-space: nowrap;
+      animation: zoomIn 4s linear forwards;
+    }
+    @keyframes zoomIn {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const colors = ["#ff4d4d", "#ff66cc", "#66ff66", "#66ccff", "#ffff66", "#ff9966", "#ffffff"];
+
+    function createLoveText() {
+      const text = document.createElement("div");
+      text.classList.add("love-text");
+      text.innerText = "❤️ Seni Seviyorum Nisa'm ❤️";
+      text.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(text);
+
+      setTimeout(() => text.remove(), 4000); 
+    }
+
+    setInterval(createLoveText, 1000);
+  </script>
+</body>
+</html>
